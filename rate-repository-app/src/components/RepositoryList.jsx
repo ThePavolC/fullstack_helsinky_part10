@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FlatList,
-  View,
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-} from "react-native";
+import { FlatList, View, StyleSheet, SafeAreaView } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 
 const styles = StyleSheet.create({
@@ -14,7 +8,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
 });
 
