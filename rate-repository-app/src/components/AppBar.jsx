@@ -12,10 +12,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
-  text: {
-    color: theme.colors.appBarText,
-    padding: 14,
-  },
 });
 
 const AppBar = () => {
