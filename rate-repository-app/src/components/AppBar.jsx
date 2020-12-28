@@ -21,7 +21,6 @@ const AppBar = () => {
   return (
     <View style={styles.container}>
       <AppBarTab text={"Repositories"} onPress={() => {}} />
-      <AppBarTab text={"Repositories2"} onPress={() => {}} />
     </View>
   );
 };
