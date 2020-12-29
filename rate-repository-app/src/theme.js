@@ -4,12 +4,16 @@ const theme = {
     textSecondary: "#586069",
     primary: "#0366d6",
     appBarBackground: "#24292e",
-    appBarText: "white",
-    inputBorder: "lightgrey",
+    appBarText: "#FFFFFF",
+    inputBorder: "#D3D3D3",
+    inputError: "#d73a4a",
+    buttonDisabled: "#C0C0C0",
+    buttonEnabled: "#0366d6",
   },
   fontSizes: {
     body: 14,
     subheading: 16,
+    inputError: 10,
   },
   fonts: {
     main: "System",
