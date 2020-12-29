@@ -3,8 +3,8 @@ import { StyleSheet, View } from "react-native";
 import { useField } from "formik";
 
 import TextInput from "./TextInput";
-import Text from "./Text";
-import theme from "../theme";
+import Text from "../Text";
+import theme from "../../theme";
 
 const styles = StyleSheet.create({
   errorText: {
