@@ -13,3 +13,11 @@ export const GET_REPOSITORIES = gql`
   }
   ${REPOSITORY_DETAIL}
 `;
+
+export const AUTHORIZED_USER = gql`
+  query {
+    authorizedUser {
+      id
+    }
+  }
+`;

@@ -4,6 +4,7 @@ import { TouchableWithoutFeedback, View, StyleSheet } from "react-native";
 import theme from "../theme";
 import FormikTextInput from "./FormikTextInput";
 import * as yup from "yup";
+import { useHistory } from "react-router-dom";
 
 import Text from "./Text";
 import useSignIn from "../hooks/useSignIn";
@@ -57,14 +58,15 @@ const SignInForm = ({ onSubmit, isValid }) => {
 };
 
 const SignIn = () => {
+  const history = useHistory();
   const [signIn] = useSignIn();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
 
     try {
-      const { data } = await signIn({ username, password });
-      console.log(data.authorize.accessToken);
+      await signIn({ username, password });
+      history.push("/");
     } catch (e) {
       console.log("error", e);
     }
