@@ -44,16 +44,39 @@ const SignInForm = ({ onSubmit, isValid }) => {
 
   return (
     <View style={styles.form}>
-      <FormikTextInput name="username" placeholder="Username" />
+      <FormikTextInput
+        name="username"
+        placeholder="Username"
+        testID="usernameField"
+      />
       <FormikTextInput
         name="password"
         placeholder="Password"
         secureTextEntry={true}
+        testID="passwordField"
       />
-      <TouchableWithoutFeedback onPress={onSubmit} disabled={isValid}>
+      <TouchableWithoutFeedback
+        onPress={onSubmit}
+        disabled={isValid}
+        testID="submitButton"
+      >
         <Text style={styles.button}>Sign in</Text>
       </TouchableWithoutFeedback>
     </View>
+  );
+};
+
+export const SignInContainer = ({ onSubmit, validationSchema }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {({ handleSubmit, isValid }) => (
+        <SignInForm onSubmit={onSubmit} isValid={isValid} />
+      )}
+    </Formik>
   );
 };
 
@@ -72,15 +95,7 @@ const SignIn = () => {
     }
   };
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}
-    >
-      {({ handleSubmit, isValid }) => (
-        <SignInForm onSubmit={handleSubmit} isValid={isValid} />
-      )}
-    </Formik>
+    <SignInContainer onSubmit={onSubmit} validationSchema={validationSchema} />
   );
 };
 

@@ -19,10 +19,22 @@ const Detail = ({
 
   return (
     <View style={detailStyles.detail}>
-      <DetailItem count={stargazersCount} label={"Stars"} />
-      <DetailItem count={forksCount} label={"Forks"} />
-      <DetailItem count={reviewCount} label={"Reviews"} />
-      <DetailItem count={ratingAverage} label={"Rating"} />
+      <DetailItem
+        count={stargazersCount}
+        label={"Stars"}
+        testID="starsDetail"
+      />
+      <DetailItem count={forksCount} label={"Forks"} testID="forksDetail" />
+      <DetailItem
+        count={reviewCount}
+        label={"Reviews"}
+        testID="reviewsDetail"
+      />
+      <DetailItem
+        count={ratingAverage}
+        label={"Rating"}
+        testID="ratingDetail"
+      />
     </View>
   );
 };

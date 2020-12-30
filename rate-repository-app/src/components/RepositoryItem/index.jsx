@@ -35,15 +35,20 @@ const RepositoryItem = ({ data }) => {
     ownerAvatarUrl,
   } = data;
   return (
-    <View style={styles.item}>
+    <View style={styles.item} testID="repositoryItem">
       <View style={styles.author}>
         <UserAvatar url={ownerAvatarUrl} />
         <View style={styles.authorText}>
-          <Text fontWeight="bold" fontSize="subheading" style={styles.text}>
+          <Text
+            fontWeight="bold"
+            fontSize="subheading"
+            style={styles.text}
+            testID="fullName"
+          >
             {fullName}
           </Text>
 
-          <Text style={styles.text} color="textSecondary">
+          <Text style={styles.text} color="textSecondary" testID="description">
             {description}
           </Text>
 

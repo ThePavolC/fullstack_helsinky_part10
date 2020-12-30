@@ -11,7 +11,13 @@ const UserAvatar = ({ url }) => {
     },
   });
 
-  return <Image source={{ uri: url }} style={imageStyles.image} />;
+  return (
+    <Image
+      source={{ uri: url }}
+      style={imageStyles.image}
+      testID="userAvatar"
+    />
+  );
 };
 
 export default UserAvatar;

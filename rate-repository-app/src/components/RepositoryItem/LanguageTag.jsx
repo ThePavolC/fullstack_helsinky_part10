@@ -13,7 +13,11 @@ const LanguageTag = ({ language }) => {
       marginTop: 8,
     },
   });
-  return <Text style={languageTagStyles.languageTag}>{language}</Text>;
+  return (
+    <Text style={languageTagStyles.languageTag} testID="languageTag">
+      {language}
+    </Text>
+  );
 };
 
 export default LanguageTag;
