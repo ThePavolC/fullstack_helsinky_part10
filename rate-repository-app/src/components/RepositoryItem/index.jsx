@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Button, Linking } from "react-native";
 import Text from "../Text";
 import Detail from "./Detail";
 import LanguageTag from "./LanguageTag";
@@ -8,6 +8,7 @@ import UserAvatar from "./UserAvatar";
 const styles = StyleSheet.create({
   item: {
     backgroundColor: "white",
+    paddingBottom: 8,
   },
 
   author: {
@@ -21,9 +22,13 @@ const styles = StyleSheet.create({
   },
 
   text: { marginTop: 6 },
+
+  buttonWrapper: {
+    paddingHorizontal: 12,
+  },
 });
 
-const RepositoryItem = ({ data }) => {
+const RepositoryItem = ({ data, showAction, actionUrl }) => {
   const {
     fullName,
     description,
@@ -34,6 +39,15 @@ const RepositoryItem = ({ data }) => {
     ratingAverage,
     ownerAvatarUrl,
   } = data;
+
+  const handleAction = () => {
+    if (showAction && actionUrl) {
+      Linking.openURL(actionUrl);
+    } else {
+      throw "Missing actionUrl in RepositoryItem";
+    }
+  };
+
   return (
     <View style={styles.item} testID="repositoryItem">
       <View style={styles.author}>
@@ -61,6 +75,11 @@ const RepositoryItem = ({ data }) => {
         reviewCount={reviewCount}
         ratingAverage={ratingAverage}
       />
+      {showAction && (
+        <View style={styles.buttonWrapper}>
+          <Button title="Open in GitHub" onPress={handleAction} />
+        </View>
+      )}
     </View>
   );
 };

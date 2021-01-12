@@ -1,5 +1,12 @@
 import React from "react";
-import { FlatList, View, StyleSheet, SafeAreaView } from "react-native";
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import { useHistory } from "react-router-dom";
 import useRepositories from "../hooks/useRepositories";
 import RepositoryItem from "./RepositoryItem";
 
@@ -19,7 +26,15 @@ export const RepositoryListContainer = ({ repositories }) => {
     ? repositories.edges.map((edge) => edge.node)
     : [];
 
-  const renderItem = (data) => <RepositoryItem data={data.item} />;
+  const history = useHistory();
+
+  const renderItem = (data) => (
+    <TouchableOpacity
+      onPress={() => history.push(`/repository/${data.item.id}`)}
+    >
+      <RepositoryItem data={data.item} />
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
